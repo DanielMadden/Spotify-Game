@@ -40,7 +40,7 @@ export default {
   setup() {
     const router = useRouter()
     const travel = (location) => {
-      router.push('/' + location)
+      router.push({ path: '/' + location })
     }
     return {
       travel
