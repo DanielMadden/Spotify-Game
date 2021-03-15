@@ -6,13 +6,21 @@ class SocketService extends SocketHandler {
   constructor() {
     super()
     this
-      .on('create:message', this.createMessage)
+      .on('players:update', this.playersUpdate)
+      .on('game:start', this.gameStart)
+      .on('log:add', this.logAdd)
   }
 
-  async createMessage(message) {
-    if (message.groupId === AppState.activeGroup.id) {
-      AppState.activeGroupMessages.push(message)
-    }
+  async playersUpdate(players) {
+    AppState.players = players
+  }
+
+  async gameStart() {
+    AppState.startGame = true
+  }
+
+  async logAdd(newLog) {
+    AppState.log.push(newLog)
   }
 }
 

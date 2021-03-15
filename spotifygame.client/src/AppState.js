@@ -4,4 +4,10 @@ import { reactive } from 'vue'
 export const AppState = reactive({
   // user: {},
   // account: {}
+  startGame: false,
+  lobby: {},
+  player: {},
+  song: {},
+  log: [],
+  players: []
 })
