@@ -16,7 +16,7 @@
             <h1>Join Lobby</h1>
           </button>
         </div>
-        <button id="button-create" class="button-home d-flex justify-content-center align-items-center" @click="travel('create')">
+        <button id="button-create" class="button-home d-flex justify-content-center align-items-center">
           <h1>Create Lobby</h1>
         </button>
         <div class="container-buttons-home d-flex flex-column">
@@ -34,18 +34,8 @@
 </template>
 
 <script>
-import { useRouter } from 'vue-router'
 export default {
-  name: 'Home',
-  setup() {
-    const router = useRouter()
-    const travel = (location) => {
-      router.push('/' + location)
-    }
-    return {
-      travel
-    }
-  }
+  name: 'Home'
 }
 </script>
 

@@ -1,0 +1,31 @@
+#input-code {
+  font-size: 250%;
+  height: 80px;
+  text-align: center;
+}
+
+.button-home {
+  height: 5em;
+  border: none;
+  border-radius: 10px;
+}
+
+.container-buttons-home {
+  width: 100%;
+}
+
+#button-join {
+  background-color: greenyellow
+}
+
+#button-create {
+  background-color: rgb(75, 75, 253)
+}
+
+#button-how {
+  background-color: orange
+}
+
+#button-about {
+  background-color: orangered
+}
