@@ -3,7 +3,6 @@ import cors from 'cors'
 import express from 'express'
 import helmet from 'helmet'
 import { RegisterControllers, Paths, RegisterSocketHandlers } from '../Setup'
-import { Auth0Provider } from '@bcwdev/auth0provider'
 import { logger } from './utils/Logger'
 
 export default class Startup {
@@ -22,13 +21,6 @@ export default class Startup {
     }))
     app.use(cors(corsOptions))
     app.use(bp.json({ limit: '50mb' }))
-
-    // NOTE Configures auth0 middleware that is used throughout controllers
-    Auth0Provider.configure({
-      domain: process.env.AUTH_DOMAIN,
-      clientId: process.env.AUTH_CLIENT_ID,
-      audience: process.env.AUTH_AUDIENCE
-    })
   }
 
   static ConfigureRoutes(app) {
