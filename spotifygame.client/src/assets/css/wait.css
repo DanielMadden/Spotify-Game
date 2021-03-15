@@ -1,0 +1,14 @@
+.button-wait {
+  height: 5em;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+}
+
+#button-copy {
+  background-color: green
+}
+
+#button-start {
+  background-color: lime
+}

@@ -1,5 +1,5 @@
 <template>
-  <div id="about" class="page d-flex justify-content-between align-items-center flex-column">
+  <div id="how" class="page d-flex justify-content-between align-items-center flex-column">
     <div class="logo-container d-flex justify-content-center align-items-center">
       <h1 class="logo" @click="travelHome()">
         Logo
@@ -7,7 +7,7 @@
     </div>
     <div class="content-limit d-flex justify-content-center">
       <div class="content d-flex flex-column justify-content-between">
-        <h1>Created by Daniel Madden and Tim Zaleski</h1>
+        <h1>How To Play</h1>
       </div>
     </div>
   </div>
@@ -16,7 +16,7 @@
 <script>
 import { useRouter } from 'vue-router'
 export default {
-  name: 'AboutPage',
+  name: 'HowPage',
   setup() {
     const router = useRouter()
     const travelHome = () => { router.push({ name: 'Home', path: '/' }) }

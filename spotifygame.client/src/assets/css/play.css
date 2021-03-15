@@ -1,0 +1,20 @@
+input {
+  font-size: 250%;
+  height: 80px;
+  text-align: center;
+  width: 49%;
+}
+
+.button-play {
+  height: 5em;
+  border: none;
+  border-radius: 10px;
+}
+
+#button-submit {
+  background-color: orange
+}
+
+#countdown {
+  font-size: 600%;
+}

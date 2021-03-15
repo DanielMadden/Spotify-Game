@@ -12,7 +12,7 @@
           <input id="input-code" type="text" placeholder="Enter Code" />
           <!-- </div> -->
           <div class="mb-3"></div>
-          <button id="button-join" class="button-home d-flex justify-content-center align-items-center">
+          <button id="button-join" class="button-home d-flex justify-content-center align-items-center" @click="travel('wait')">
             <h1>Join Lobby</h1>
           </button>
         </div>
@@ -20,11 +20,11 @@
           <h1>Create Lobby</h1>
         </button>
         <div class="container-buttons-home d-flex flex-column">
-          <button id="button-how" class="button-home d-flex justify-content-center align-items-center">
+          <button id="button-how" class="button-home d-flex justify-content-center align-items-center" @click="travel('how')">
             <h1>How To Play</h1>
           </button>
           <div class="mb-3"></div>
-          <button id="button-about" class="button-home d-flex justify-content-center align-items-center">
+          <button id="button-about" class="button-home d-flex justify-content-center align-items-center" @click="travel('about')">
             <h1>About</h1>
           </button>
         </div>

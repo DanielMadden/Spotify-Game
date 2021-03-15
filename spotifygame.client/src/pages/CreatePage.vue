@@ -31,7 +31,7 @@
             <span id="break-choice">10</span>&nbsp; seconds
           </div>
         </div>
-        <button id="button-create" class="button-home d-flex justify-content-center align-items-center">
+        <button id="button-create" class="button-home d-flex justify-content-center align-items-center" @click="createLobby()">
           <h1>Create Lobby</h1>
         </button>
       </div>
@@ -47,18 +47,21 @@ export default {
   setup() {
     const router = useRouter()
     const travelHome = () => { router.push({ name: 'Home', path: '/' }) }
+    const createLobby = () => {
+      router.push({ name: 'Wait', path: '/wait' })
+    }
     onMounted(() => {
       const slider = document.getElementById('myRange')
       const output = document.getElementById('break-choice')
       output.innerHTML = slider.value // Display the default slider value
-
       // Update the current slider value (each time you drag the slider handle)
       slider.oninput = function() {
         output.innerHTML = this.value
       }
     })
     return {
-      travelHome
+      travelHome,
+      createLobby
     }
   }
 }
