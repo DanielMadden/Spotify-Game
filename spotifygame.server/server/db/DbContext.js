@@ -1,9 +1,9 @@
 import mongoose from 'mongoose'
-import ValueSchema from '../models/Value'
+import RoomSchema from '../models/Room'
 import AccountSchema from '../models/Account'
 
 class DbContext {
-  Values = mongoose.model('Value', ValueSchema);
+  Rooms = mongoose.model('Room', RoomSchema);
   Account = mongoose.model('Account', AccountSchema);
 }
 

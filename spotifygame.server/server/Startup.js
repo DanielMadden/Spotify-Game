@@ -4,7 +4,10 @@ import express from 'express'
 import helmet from 'helmet'
 import { RegisterControllers, Paths, RegisterSocketHandlers } from '../Setup'
 import { logger } from './utils/Logger'
-
+import { clientId, clientSecret } from './SpotifyAuth'
+const axios = require('axios')
+const Qs = require('qs')
+let token = "";
 export default class Startup {
   static ConfigureGlobalMiddleware(app) {
     // NOTE Configure and Register Middleware
@@ -59,4 +62,39 @@ export default class Startup {
       res.status(error.status).send({ error: { message: error.toString(), status: error.status }, url: req.url })
     })
   }
+
+  static GetToken()
+  {
+    return token;
+  }
+
+  static SpotifyAuth()
+  {
+    const headers = {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      auth: {
+        username: clientId,
+        password: clientSecret,
+      },
+    };
+    const data = {
+      grant_type: 'client_credentials',
+    };
+    
+    // @ts-ignore
+      const resp = axios.post(
+        'https://accounts.spotify.com/api/token',
+    
+        // @ts-ignore
+        Qs.stringify(data),
+        headers
+      ).then(function(response){                               
+      token = response.data.access_token;
+      
+  });        
+  }
+  
 }
