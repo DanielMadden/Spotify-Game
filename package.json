@@ -1,16 +1,25 @@
-
-  {
-    "name": "spotifygame",
-    "version": "1.0.0",
-    "scripts": {
-      "build": "npm run setup:client && npm run setup:server && npm run build:client",
-      "setup:client": "cd spotifygame.client && npm i",
-      "setup:server": "cd spotifygame.server && npm i",
-      "build:client": "npm run --prefix spotifygame.client build",
-      "start": "node spotifygame.server/index.js"
-    },
-    "engines": {
-      "node": "^14.15.4"
-    }
+{
+  "name": "spotifygame",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm run setup:client && npm run setup:server && npm run build:client",
+    "setup:client": "cd spotifygame.client && npm i",
+    "setup:server": "cd spotifygame.server && npm i",
+    "build:client": "npm run --prefix spotifygame.client build",
+    "start": "node spotifygame.server/index.js"
+  },
+  "engines": {
+    "node": "^14.15.4"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "mongoose": "^5.12.0",
+    "qs": "^6.9.6",
+    "socket.io": "^4.0.0"
   }
-  
+}

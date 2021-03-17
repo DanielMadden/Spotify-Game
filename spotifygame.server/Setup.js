@@ -70,10 +70,10 @@ export async function RegisterSocketHandlers() {
   })
 }
 
-export async function attachHandlers(io, socket, user, profile) {
+export async function attachHandlers(io, socket, user) {
   HANDLERS.forEach(Handler => {
     try {
-      const handler = new Handler(io, socket, user, profile)
+      const handler = new Handler(io, socket, user)
       logger.log('Attached', handler)
     } catch (e) {
       logger.error(

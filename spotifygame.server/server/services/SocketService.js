@@ -1,9 +1,9 @@
 import SocketIO from 'socket.io'
-import { Auth0Provider } from '@bcwdev/auth0provider'
 import { logger } from '../utils/Logger'
 import { attachHandlers } from '../../Setup'
 import { accountService } from './AccountService'
 class SocketService {
+  // @ts-ignore
   io = SocketIO();
   /**
    * @param {SocketIO.Server} io
@@ -21,19 +21,13 @@ class SocketService {
   /**
    * @param {SocketIO.Socket} socket
    */
-  async authenticate(socket, bearerToken) {
+  async authenticate(socket) {
     try {
-      const user = await Auth0Provider.getUserInfoFromBearerToken(bearerToken)
-      const profile = await accountService.getAccount(user)
-      const limitedProfile = {
-        id: profile.id,
-        email: profile.email,
-        picture: profile.picture
-      }
-      await attachHandlers(this.io, socket, user, limitedProfile)
-      socket.join(user.id)
-      socket.emit('authenticated', limitedProfile)
-      this.io.emit('UserConnected', user.id)
+      const user = "Tim";
+      await attachHandlers(this.io, socket, user)
+      socket.join(user)
+      socket.emit('authenticated', user)
+      this.io.emit('UserConnected', user)
     } catch (e) {
       socket.emit('error', e)
     }
@@ -61,7 +55,7 @@ class SocketService {
     return socket => {
       this._newConnection(socket)
       socket.on('disconnect', this._onDisconnect(socket))
-      socket.on('authenticate', (bearerToken) => this.authenticate(socket, bearerToken))
+      socket.on('authenticate', () => this.authenticate(socket))
     }
   }
 
